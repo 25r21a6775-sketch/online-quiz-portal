@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Quiz Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">Q</span><div><strong>QuizPortal</strong><small>LEARN · PRACTICE · IMPROVE</small></div></div>
+    <span id="headerUser" class="header-user"></span>
+  </header>
+  <main class="shell">
+    <section id="authView" class="auth-layout">
+      <div class="hero">
+        <span class="eyebrow">YOUR KNOWLEDGE, YOUR PACE</span>
+        <h1>Small steps.<br><span>Big progress.</span></h1>
+        <p>Practice your college subjects with quizzes designed to help you learn, track your score, and grow your confidence.</p>
+        <div class="hero-stats"><div><b>05</b><small>Subjects</small></div><div><b>03</b><small>Difficulty levels</small></div><div><b>∞</b><small>Practice again</small></div></div>
+      </div>
+      <div class="auth-card">
+        <div class="tabs"><button class="tab active" id="loginTab">Sign in</button><button class="tab" id="registerTab">Create account</button></div>
+        <form id="authForm">
+          <h2 id="authTitle">Welcome back</h2><p id="authDescription" class="muted">Sign in to continue to your dashboard.</p>
+          <label id="nameLabel" class="hidden">Full name<input id="fullName" autocomplete="name" placeholder="Enter your full name"></label>
+          <label id="rollLabel" class="hidden">Roll number<input id="rollNumber" placeholder="Enter your roll number"></label>
+          <label>Username<input id="username" required autocomplete="username" placeholder="Choose a username"></label>
+          <label>Password<input id="password" required type="password" autocomplete="current-password" placeholder="Enter your password" minlength="4"></label>
+          <label id="confirmLabel" class="hidden">Confirm password<input id="confirmPassword" type="password" placeholder="Enter password again" minlength="4"></label>
+          <p id="authMessage" class="message" role="status"></p>
+          <button class="primary full" type="submit" id="authSubmit">Sign in <span>→</span></button>
+          <p class="fine-print">Demo version: accounts are saved only in this browser on this device. Do not use a real or reused password.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dashboardView" class="hidden">
+      <div class="welcome-row"><div><span class="eyebrow">STUDENT DASHBOARD</span><h1>Ready to learn, <span id="studentName">Student</span>?</h1><p class="muted">Choose a subject and a difficulty to begin.</p></div><button id="logoutButton" class="outline">Sign out ↗</button></div>
+      <div class="section-title"><h2>Choose your subject</h2><span class="muted">5 subjects available</span></div>
+      <div id="subjectGrid" class="subject-grid"></div>
+      <div class="section-title"><h2>Your recent practice</h2></div>
+      <div id="history" class="history"></div>
+    </section>
+
+    <section id="difficultyView" class="hidden">
+      <button class="back-link" id="backDashboard">← Back to subjects</button>
+      <div class="quiz-intro"><span class="eyebrow">SET UP YOUR SESSION</span><h1 id="chosenSubject">Choose difficulty</h1><p class="muted">Pick the level that suits your preparation today.</p></div>
+      <div class="difficulty-grid">
+        <button class="difficulty easy" data-level="Easy"><span>🌱</span><b>Easy</b><small>Build your foundations</small></button>
+        <button class="difficulty medium" data-level="Medium"><span>⚡</span><b>Medium</b><small>Test your understanding</small></button>
+        <button class="difficulty hard" data-level="Hard"><span>🎯</span><b>Hard</b><small>Challenge yourself</small></button>
+      </div>
+    </section>
+
+    <section id="quizView" class="hidden">
+      <div class="quiz-top"><button id="exitQuiz" class="back-link">← Exit quiz</button><span id="quizMeta" class="pill"></span></div>
+      <div class="progress-line"><div id="progressFill"></div></div>
+      <div class="question-card"><div class="question-label"><span id="questionCount">QUESTION 1</span><span id="answeredCount">0 answered</span></div><h2 id="questionText"></h2><div id="options" class="options"></div><div class="question-actions"><button id="previousQuestion" class="outline">← Previous</button><button id="nextQuestion" class="primary">Next question →</button><button id="submitQuiz" class="primary hidden">Submit quiz ✓</button></div></div>
+    </section>
+
+    <section id="resultView" class="hidden">
+      <div class="result-heading"><span class="eyebrow">SESSION COMPLETE</span><h1>Quiz results</h1><p class="muted" id="resultSubtitle"></p></div>
+      <div class="score-card"><div class="score-ring"><strong id="scorePercent">0%</strong><small>YOUR SCORE</small></div><div class="score-copy"><h2 id="scoreTitle">Good effort!</h2><p id="scoreText"></p><div class="score-stats"><div><b id="correctCount">0</b><small>Correct</small></div><div><b id="wrongCount">0</b><small>Incorrect</small></div><div><b id="unansweredCount">0</b><small>Unanswered</small></div></div></div></div>
+      <div class="section-title"><h2>Answer review</h2><span class="muted">Learn from each answer</span></div><div id="reviewList" class="review-list"></div>
+      <div class="result-actions"><button id="retryQuiz" class="primary">Try this level again ↻</button><button id="resultDashboard" class="outline">Back to dashboard</button></div>
+    </section>
+    <footer>Online Quiz Portal <span>•</span> College mini-project demo</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
